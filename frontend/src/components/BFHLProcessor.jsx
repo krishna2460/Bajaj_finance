@@ -58,7 +58,8 @@ export function BFHLProcessor() {
         return
       }
 
-      const response = await axios.post('http://localhost:5000/bfhl', {
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5000'
+      const response = await axios.post(`${apiUrl}/bfhl`, {
         user_id: formData.user_id,
         email_id: formData.email_id,
         college_roll_number: formData.college_roll_number,
